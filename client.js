@@ -34,6 +34,20 @@ const employees = [
 
 console.log('array of employee data: ',  employees );
 
+function newEmployeeObject(employee){
+  //delete employee.employeeNumber;
+  //delete employee.annualSalary;
+  //delete employee.reviewRating;
+  employee.bonusPercentage = 2;
+  employee.totalCompensation = 2;
+  employee.totalBonus = 4;
+
+  return employee;
+}
+
+let result = newEmployeeObject(employees[0]);
+console.log(result);
+
 
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
@@ -50,8 +64,27 @@ console.log('array of employee data: ',  employees );
 //
 function calculateIndividualEmployeeBonus( employee ) {  
   // your logic here
-  
+if(employee[0].reviewRating === 3){
+  employee[0].annualSalary = employee[0].annualSalary*1.04;
+}
+
+if(employee[0].reviewRating === 4){
+  employee[0].annualSalary = employee[0].annualSalary*1.06;
+}
+
+if(employee[0].reviewRating === 5){
+  employee[0].annualSalary = employee[0].annualSalary*1.10;
+}
+
+if(employee[0].employeeNumber.length === 4){
+  console.log('the employee numbner is 4 digits long');
+  employee[0].annualSalary = employee[0].annualSalary*1.05;
+}
+
+  return employee[0];
+}
   
   // return new object with bonus results
 
-}
+
+console.log(calculateIndividualEmployeeBonus(employees));
